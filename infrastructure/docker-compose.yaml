@@ -1,0 +1,17 @@
+version: "3"
+
+volumes:
+    postgres-data:
+
+services:
+    db:
+        image: postgres:11-alpine
+        container_name: skeduler-postgresql
+        ports:
+            - "5433:5432"
+        environment:
+            POSTGRES_DB: skeduler
+            POSTGRES_USER: skeduler
+            POSTGRES_PASSWORD: skeduler
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
